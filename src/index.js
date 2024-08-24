@@ -2,11 +2,12 @@ import dotenv from "dotenv"
 import express, { query } from "express"
 import querys from "./helpers/db.js"
 
-dotenv.config({
-    path: './env'
-})
+dotenv.config()
 
 const app = express()
+
+app.use(express.json())
+
 
 const result = await querys("SELECT * FROM users")
 console.log(result)
